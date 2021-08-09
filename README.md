@@ -1,2 +1,2 @@
 # actions-test
-Testing GitHub actions
+## Testing GitHub actions
