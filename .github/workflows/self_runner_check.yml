@@ -1,0 +1,14 @@
+name: self runner github test
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Build:
+    runs-on: abhishek-test-runner
+
+    steps:
+
+    - name: Running on Personal runner
+      run: echo "Hello Actions from Personal Runner!!"
