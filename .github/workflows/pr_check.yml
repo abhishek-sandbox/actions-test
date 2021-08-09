@@ -1,4 +1,4 @@
-name: Github Actions Test. Docker build and push
+name: Github Actions Test. PR Checkers
 
 on:
   pull_request:
