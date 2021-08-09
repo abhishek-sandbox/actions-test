@@ -1,0 +1,37 @@
+name: Github Actions Test. Docker build and push
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Print a Random String
+      run: echo "Hello Actions !!"
+
+    - name: Build and push Docker Image
+      run: docker build -t latest .
+
+  docker-image-scan:
+    needs: Build
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Running XXXXX docker scan
+      run: echo "scanning Command here !!"
+
+
+  python-linting:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Running some Python Linters
+      run: echo "This step needs to run parallel. Running a Python linter !!"
