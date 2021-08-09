@@ -6,7 +6,7 @@ on:
 
 jobs:
   Build:
-    runs-on: abhishek-test-runner
+    runs-on: self-hosted
 
     steps:
 
