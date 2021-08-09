@@ -1,4 +1,4 @@
-name: Docker build and push
+name: Github Actions Test. Docker build and push
 
 on:
   push:
@@ -7,12 +7,32 @@ on:
     branches: [ main ]
 
 jobs:
-  Build-test:
-  
+  Build:
     runs-on: ubuntu-latest
 
     steps:
+
     - uses: actions/checkout@v2
 
     - name: Print a Random String
       run: echo "Hello Actions !!"
+
+  Post-Build:
+    needs: Build-test
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Print a String
+      run: echo "This will wait for the Build-test to execute first"
+
+
+  Parallel-Build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Print a string
+      run: echo "This step needs to run parallel. Default Behavior !!"
