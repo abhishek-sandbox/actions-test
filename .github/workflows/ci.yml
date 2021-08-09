@@ -17,6 +17,14 @@ jobs:
     - name: Print a Random String
       run: echo "Hello Actions !!"
 
+    - name: Build and push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: abhishekphukan/demo-app
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASS }}
+
   Post-Build:
     needs: Build
     runs-on: ubuntu-latest
